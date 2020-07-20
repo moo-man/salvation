@@ -3,7 +3,7 @@
     <h2>{{title}}</h2>
     <div class="salvation-menu">
       <div class="menu-image">
-        <a href="https://moohammer.club">
+        <a href="https://world.moohammer.club">
         <img src="./assets/images/the-world.jpg"/>
         </a>
       </div>
@@ -15,17 +15,30 @@
     </div>
         <div class="salvation-menu">
       <div style="padding: 0px" class="menu-image">
-        <img src="./assets/images/the-emperor.jpg"/>
+        <img @click="restartFoundry" src="./assets/images/the-emperor.jpg"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios"
 export default {
   data () {
     return {
       title: 'The Hand Of Fate'
+    }
+  },
+  methods :{
+    restartFoundry() {
+      console.log("Sending Restart Request")
+      axios.post("https://refresh.moohammer.club/restart", {})
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     }
   }
 }
