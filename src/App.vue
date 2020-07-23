@@ -1,15 +1,29 @@
 <template>
   <div id="app">
+    <app-auth v-if="showAuth"></app-auth>
+    <app-admin></app-admin>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+
+import Authorization from "./Authorization.vue"
+import Admin from "./Admin.vue"
 export default {
   name: 'app',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  components : {
+    appAuth : Authorization,
+    appAdmin : Admin
+  },
+  computed : {
+    showAuth() {
+      return this.$store.getters.showAuth
     }
   }
 }

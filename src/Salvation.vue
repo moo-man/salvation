@@ -15,7 +15,7 @@
     </div>
         <div class="salvation-menu">
       <div style="padding: 0px" class="menu-image">
-        <img @click="restartFoundry" src="./assets/images/the-emperor.jpg"/>
+        <img @click="adminActions" src="./assets/images/the-emperor.jpg"/>
       </div>
     </div>
   </div>
@@ -30,15 +30,9 @@ export default {
     }
   },
   methods :{
-    restartFoundry() {
-      console.log("Sending Restart Request")
-      axios.post("https://refresh.moohammer.club/restart", {})
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    adminActions() {
+      if (!this.$store.getters.auth)
+        this.$store.commit("SHOW_AUTH")
     }
   }
 }
