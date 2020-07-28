@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <app-auth v-if="showAuth"></app-auth>
-    <app-admin></app-admin>
+    <component :is="modal" v-if="showModal"></component>
     <router-view></router-view>
   </div>
 </template>
@@ -14,16 +13,18 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      modal: ''
     }
   },
   components : {
-    appAuth : Authorization,
-    appAdmin : Admin
+    appAuthModal : Authorization,
+    appAdminModal : Admin
   },
   computed : {
-    showAuth() {
-      return this.$store.getters.showAuth
+    showModal() {
+      this.modal = this.$store.getters.modal
+      console.log("modal", this.$store.getters.modal)
+      return true
     }
   }
 }

@@ -22,7 +22,6 @@
 </template>
 
 <script>
-import axios from "axios"
 export default {
   data () {
     return {
@@ -31,8 +30,10 @@ export default {
   },
   methods :{
     adminActions() {
-      if (!this.$store.getters.auth)
+      if (!this.$store.getters.token)
         this.$store.commit("SHOW_AUTH")
+      else
+        this.$store.commit("SHOW_ACTIONS")
     }
   }
 }

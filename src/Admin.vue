@@ -7,36 +7,25 @@
 
         <template v-slot:body>
             <div class="action-list">
-                <a>Restart Foundry</a>
-                <a href="https://theworld.signin.aws.amazon.com/console/">Access S3 Storage</a>
+                <a @click="restartFoundry">Restart Foundry</a>
+                <a href="https://theworld.signin.aws.amazon.com/console/" target="_blank">Access S3 Storage</a>
                 <a>Access Calendar Editing</a>
             </div>
-        </template>
-
-        <template v-slot:footer>
-            <button class="modal-default-button" @click="close">
-            Close
-            </button>
         </template>
     </modal>
 </template>
 
 <script>
 import Modal from "./components/Modal"
+import axios from "axios"
 export default {
     components : {
         modal : Modal
     },
     methods: {
-        authSubmit() {
-            this.$store.dispatch("submitAuth")
-        },
-        authClosed() {
-            this.$store.commit("HIDE_AUTH")
-        },
         restartFoundry() {
             console.log("Sending Restart Request")
-            axios.post("https://refresh.moohammer.club/restart", {})
+            axios.post("https://admin.moohammer.club/restart", {})
             .then(function (response) {
                 alert("Foundry Restart Successful")
             })

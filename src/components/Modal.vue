@@ -13,6 +13,9 @@
 
               <div class="modal-footer">
                 <slot name="footer"></slot>
+                <button class="modal-default-button" @click="close">
+                  Close
+                </button>
               </div>
             </div>
           </div>
@@ -21,7 +24,11 @@
 
 <script>
 export default {
-    
+    methods : {
+      close () {
+        this.$store.commit("HIDE_MODAL")
+      }
+    }
 }
 </script>
 

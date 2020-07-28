@@ -13,9 +13,6 @@
             <button class="modal-default-button" @click="authSubmit">
             OK
             </button>
-            <button class="modal-default-button" @click="authClosed">
-            Close
-            </button>
         </template>
     </modal>
 </template>
@@ -30,9 +27,6 @@ export default {
         authSubmit() {
             this.$store.dispatch("submitAuth")
         },
-        authClosed() {
-            this.$store.commit("HIDE_AUTH")
-        }
     }
 }
 </script>

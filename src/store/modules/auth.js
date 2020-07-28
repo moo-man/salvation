@@ -1,23 +1,16 @@
 const state = {
     token : undefined,
-    showAuth : false
 }
 
 const getters = {
-    auth : state => {
+    token : state => {
         return state.token
-    },
-    showAuth : state => {
-        return state.showAuth
     }
 }
 
 const mutations = {
-    "SHOW_AUTH"(state) {
-        state.showAuth = true;
-    },
-    "HIDE_AUTH"(state) {
-        state.showAuth = false;
+    "SHOW_AUTH"() {
+        this.state.modal = "appAuthModal"
     }
 }
 
@@ -26,6 +19,7 @@ const actions = {
     submitAuth({commit}, authData)
     {
         commit("HIDE_AUTH")
+        this.state.modal = "appAdminModal"
     }
 }
 
