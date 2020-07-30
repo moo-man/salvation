@@ -6,10 +6,12 @@
 
 
         <template v-slot:body>
-            <input type="password">
+            <input v-model="password" type="password">
+            <p v-if="error" class="error">Denied</p>
         </template>
 
         <template v-slot:footer>
+
             <button class="modal-default-button" @click="authSubmit">
             OK
             </button>
@@ -20,13 +22,26 @@
 <script>
 import Modal from "./components/Modal"
 export default {
+    data() {
+        return {
+            password : "",
+            error : false
+        }
+    },
     components : {
         modal : Modal
     },
     methods: {
         authSubmit() {
-            this.$store.dispatch("submitAuth")
+            this.$store.dispatch("submitAuth", this.password).then(success => {
+                if (success)
+                    this.error = false;
+                else
+                    this.error = true;
+            })
         },
     }
 }
 </script>
+
+

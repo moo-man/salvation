@@ -96,4 +96,8 @@ export default {
   transform: scale(1.1);
 }
 
+.error {
+  color: red;
+}
+
 </style>

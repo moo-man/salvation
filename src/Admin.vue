@@ -25,14 +25,7 @@ export default {
     methods: {
         restartFoundry() {
             console.log("Sending Restart Request")
-            axios.post("https://admin.moohammer.club/restart", {})
-            .then(function (response) {
-                alert("Foundry Restart Successful")
-            })
-            .catch(function (error) {
-                alert("Foundry Restart Failed")
-                console.log(error);
-            });
+            this.$store.dispatch("FOUNDRY_RESTART")
         }
     }
 }

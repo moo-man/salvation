@@ -33,7 +33,7 @@ export default {
       if (!this.$store.getters.token)
         this.$store.commit("SHOW_AUTH")
       else
-        this.$store.commit("SHOW_ACTIONS")
+        this.$store.commit("SHOW_ADMIN_ACTIONS")
     }
   }
 }
