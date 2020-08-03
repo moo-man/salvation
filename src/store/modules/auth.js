@@ -20,7 +20,7 @@ const mutations = {
 const actions = {
     submitAuth({commit}, authData)
     {
-        axios.post("http://localhost:3000/auth", {password: authData})
+        axios.post("http://admin.hof.cards:3000/auth", {password: authData})
         .then(res => {
             if (res.data.token)
             {

@@ -3,7 +3,7 @@
     <h2>{{title}}</h2>
     <div class="salvation-menu">
       <div class="menu-image">
-        <a href="https://world.moohammer.club">
+        <a href="https://world.hof.cards">
         <img src="./assets/images/the-world.jpg"/>
         </a>
       </div>
